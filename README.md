@@ -26,8 +26,9 @@ __Scenario:__
 
 __Installation for IRIS:__  
 - Get the external IPV4 address of the machine that runs your docker environment (example =**_10.10.1.99_** )   
-This is required to establish access between both containers  
-- Download CrossECP-IRIS from OEX   
+This is required to establish access between both containers
+- Install [CrossECP-Caché from OEX](https://openexchange.intersystems.com/package/CrossECP-Cache)   
+- Download [CrossECP-IRIS from OEX](https://openexchange.intersystems.com/package/CrossECP-IRIS)     
 Copy your (loan) license key into iris.key  
 - From the download directory run:  
 __docker-compose up -d --build__   

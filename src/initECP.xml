@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25" zv="Cache for UNIX (Red Hat Enterprise Linux for x86-64) 2018.1.4 (Build 505_1U)" ts="2021-03-05 13:45:29">
+<Routine name="initECP" type="MAC" languagemode="0" timestamp="65808,49457.500397"><![CDATA[
+initECP ; setup and start ECP for demo
+  do a() quit
+a() {
+   new $namespace
+   ZN "%SYS"
+   set ecp=##class(Config.ECPServers).Open("CECP")
+   if '$isobject(ecp) write "ECP Server Configuration broken",! quit
+   set state=##class(SYS.ECP).GetServerConnState("CECP")
+   do 98,99 else  quit 
+   set oldip=ecp.Address
+1  write "Enter Host-IP-Adress of Docker (nn.nn.nn.nn) ["_oldip_"]: "
+   read ip,!
+   if ip="" set ip=oldip goto 2
+   if ip'?1.3N3(1"."1.3N)  write "only IP4 Format nn.nn.nn.nn !",! goto 1
+   set ecp.Address=ip
+   set sc=ecp.%Save()
+   set state=##class(SYS.ECP).GetServerConnState("CECP")
+   do 98,99 else  quit
+2  write "Connect to ECP sever on "_ip_" now ? (nNyY) [Y]: "
+   read yn#1,!
+   if yn="" set yn="Y"
+   if "nNyY"'[yn  goto 2
+   if "nN"[yn quit
+3  set sc=##class(SYS.ECP).ServerAction("CECP",3,1) ; wait 1 sec
+   set state=##class(SYS.ECP).GetServerConnState("CECP")
+   do 98
+   if state-5 do 99 if $t goto 3   
+   quit
+   
+98 set msg=$case(state,
+        -2:"Invalid connection name",
+        -1:"Invalid",
+         0:"Initializing",
+         1:"Not Connected",
+         2:"Connection in Progress",
+         3:"Connection Failed",
+         4:"Disabled",
+         5:"Normal",
+         6:"Trouble",
+         7:"Recovery",
+          :"unknown")
+  write "Server status ",state," ",msg,!
+  quit  
+99 read "Continue anyway ? (nNyY) [Y]: ",co#1,!
+       if co="" quit
+       if "nNyY"'[co goto 99
+       if "yY"[co
+       quit
+  }
+]]></Routine>
+</Export>

@@ -5,9 +5,11 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: always
-    ports: 
-      - 1972
-      - 52773
-      - 53773
+    ports:
+      - '45773:1972'
+      - '46773:52773'
+      - '47773:53773'
+    
     volumes:
-      - ./:/irisrun/repo
+      - ./:/irisdev/app
+      - ../:/external

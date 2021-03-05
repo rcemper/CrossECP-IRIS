@@ -1,8 +1,9 @@
-;do $System.OBJ.LoadDir("/opt/irisbuild/src","ck",,1)
-
 zn "%SYS"
 Do ##class(Security.Users).UnExpireUserPasswords("*")
 
-zn "USER"
-zpm "load /opt/irisbuild/ -v":1:1
+ZN "USER"
+do $System.OBJ.ImportDir("/opt/irisapp/src",,"ck")
+
+zpm "load /opt/irisapp/ -v":1:1
+
 halt

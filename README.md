@@ -52,4 +52,5 @@ Now you are ready for testing
 
 [Article in DC](https://community.intersystems.com/post/using-ecp-across-iris-and-cach%C3%A9)    
 
-**Code Quality** in SCREENSHOTS     
+**Code Quality**    
+<img width="85%" src="https://openexchange.intersystems.com/mp/img/packages/1264/screenshots/ymcazsn6zy8faygtshcyaoma7es.jpg">

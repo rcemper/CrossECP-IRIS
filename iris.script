@@ -4,6 +4,4 @@ Do ##class(Security.Users).UnExpireUserPasswords("*")
 ZN "USER"
 do $System.OBJ.ImportDir("/opt/irisapp/src",,"ck")
 
-zpm "load /opt/irisapp/ -v":1:1
-
 halt

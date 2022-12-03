@@ -13,12 +13,11 @@ WORKDIR /opt/irisapp
 RUN chmod 666 /usr/irissys/iris.cpf \
  && chmod 666 /usr/irissys/mgr/messages.log  \
  && chmod 666 /usr/irissys/iris.cpf \
- && chown irisowner:irisuser /opt/irisapp       
+ && chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} /opt/irisapp         
 
-USER irisowner
+USER ${ISC_PACKAGE_MGRUSER}
 
 COPY  src src 
-COPY  module.xml module.xml
 COPY  iris.script /tmp/iris.script
 
 RUN iris start IRIS \

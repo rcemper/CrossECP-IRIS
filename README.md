@@ -1,3 +1,5 @@
+<p align="right"><img src="https://github.com/isc-at/CPIPE/blob/master/archived.jpg"/></p>
+
 Migration from Caché to IRIS can be quite a challenge if your code is grown over many years    
 and probably not so clean structured as you may like it. So you face the need to check your  
 migrated code against some reference data. A few samples might not be a problem,   

@@ -1,4 +1,5 @@
-<p align="right"><img src="https://github.com/isc-at/CPIPE/blob/master/archived.jpg"/></p>
+<img src="https://community.intersystems.com/sites/default/files/inline/images/archived.gif" width=100></img>
+<b>&nbsp;no maintenance or update</b>  
 
 Migration from Caché to IRIS can be quite a challenge if your code is grown over many years    
 and probably not so clean structured as you may like it. So you face the need to check your  
@@ -53,3 +54,4 @@ by _System > Configuration > ECP Settings > ECP Data Servers_
 Now you are ready for testing
 
 [Article in DC](https://community.intersystems.com/post/using-ecp-across-iris-and-cach%C3%A9)    
+
